@@ -78,16 +78,15 @@ const graduates = [
 
 Once you have the new array created, sort the universities alphabetically and log the result. */
 const universities = [];
-console.log(universities);
+// console.log(universities);
 let universities2 = universities.sort();
 for(let i = 0; i < graduates.length; i++){
-  universities.push
+ universities.push(graduates[i].university)
 }
 
-console.log(universities);
 universities.sort();
+console.log(universities);
 
-console.log(universities2);
 /* Request 2: Create a new array called contactInfo that contains both first name and email of each student. This will be an array of strings.
 
 The resulting contact information strings should have a space between the first name and the email, like this: 
@@ -101,10 +100,12 @@ for (let i=0; i < graduates.length; i++){
 console.log(contactInfo);
 
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called unisWithUni that contains them all. This will be an array of objects. Log the result. */
-const unisWithUni = [];
+ const unisWithUni = graduates.filter(unis => {
+  if(unis.university.includes('Uni')) {
+    return true;
+  }
+});
 console.log(unisWithUni);
-
-
 // ==== ADVANCED Array Methods ====
 
 // Given this zoo data from around the United States, follow the instructions below.  Use the specific array methods in the requests below to solve the problems.
@@ -152,10 +153,26 @@ console.log(lowercaseanimals);
 The zoos are concerned about animals with a lower population count. Using filter, create a new array of objects called lowPopulationAnimals which contains only the animals with a population less than 5.
 
 */
-const lowPopulationAnimals = zooAnimals.filter (animal => {
-  animal.population < 5
-})
+let lowPopulationAnimals = [];
+const popanimal = pop => pop.population < 5;
+lowPopulationAnimals = zooAnimals.filter(popanimal);
 console.log(lowPopulationAnimals);
+
+
+
+
+
+// let lowPopulationAnimals = [];
+
+// const lowPopulationAnimals = animal=> zooAnimals.filter (animal => {
+//   animal.population < 5
+// })
+// console.log(lowPopulationAnimals);
+
+// let lowPopulationAnimals = [];
+// const lowPopulationAnimals = animal => animal.population < 5;
+// lowPopulationAnimals = zooAnimals.filter(animal);
+// console.log(lowPopulationAnimals);
 
 /* Request 4: .reduce() 
 
